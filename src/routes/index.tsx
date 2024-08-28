@@ -1,5 +1,7 @@
 import { useState } from "react";
-import BgImage from "../public/background.jpg";
+import BgImage from "../../public/background.jpg";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import React from "react";
 
 function App() {
   const [name, setName] = useState("");
@@ -61,7 +63,9 @@ function App() {
               <br />
               <br />
               <h3 className="text-white">No Account?</h3>
-              <h3 className="font-semibold text-white">Sign up</h3>
+              <Link to="/sign-up" className="font-semibold text-white">
+                Sign up
+              </Link>
             </div>
           </div>
         </form>
@@ -70,4 +74,6 @@ function App() {
   );
 }
 
-export default App;
+export const Route = createFileRoute("/")({
+  component: App,
+});
